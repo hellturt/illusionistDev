@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <title>illusionistDev</title>
+</head>
+
+<body>
+  <main id="primary" class="site-main">
+
+    <section class="main-section">
+      <div class="container">
+        <div class="left">
+          <canvas id="canvas" width="100" height="100"></canvas>
+        </div>
+        <div class="title">
+          <h1>Welcome</h1>
+          <p>Let's build something amazing.</p>
+        </div>
+      </div>
+      <div id="bg-animation"></div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <div class="info">
+          <div class="section-title normal">
+            <h2>We're <span>here</span> to help you</h2>
+            <div class="dot"></div>
+          </div>
+          <div class="service-container">
+            <div class="service"
+              data-text="<i>Launch a professional website and digital identity that makes your business visible online.</i>"
+              data-title="Build Your Online Presence">
+              <canvas id="icon1" width="100" height="100"></canvas>
+              <h3>Build Your Online Presence</h3>
+            </div>
+            <div class="service" data-text="<i>Streamline your workflow with digital solutions.</i>"
+              data-title="Digitize Your Business">
+              <canvas id="icon2" width="100" height="100"></canvas>
+              <h3>Digitize Your Business</h3>
+            </div>
+            <div class="service"
+              data-text="<i>Reach more customers and scale your business with digital campaigns tailored to your brand.</i>"
+              data-title="Grow with Digital Marketing">
+              <canvas id="icon3" width="100" height="100"></canvas>
+              <h3>Grow with Digital Marketing</h3>
+            </div>
+          </div>
+        </div>
+        <div class="image-container">
+        </div>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="container">
+        <div class="image-container">
+          <div id="work-animation"></div>
+        </div>
+        <div class="list">
+          <div class="section-title reverse">
+            <h2>Our latest <span>work</span></h2>
+            <div class="dot"></div>
+          </div>
+          <div class="project-container">
+            <div class="project"><a href="/project/affa_kitchen.html">Affa Kitchen</a></div>
+            <div class="project"><a href="/project/cashless_society.html">Cashless Society</a></div>
+            <div class="project"><a href="/project/dotme_group.html">DotMe Group Sdn. Bhd.</a></div>
+            <div class="project"><a href="portfolio.html">more . . .</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="container">
+        <div class="info">
+          <div class="section-title normal">
+            <h2>Get in <span>touch</span></h2>
+            <div class="dot"></div>
+          </div>
+          <div class="info-container">
+            <p>Have a project in mind or just want to say hi?<br>Reach me directly on</p>
+            <div class="contact-info">
+              <a href="https://wa.me/+601121187248" target="_blank"><img src="./img/icon-whatsapp.png" /></a>
+              <a href="https://t.me/hellturt" target="_blank"><img src="./img/icon-telegram.png" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="image-container"></div>
+      </div>
+    </section>
+
+    <!-- Mid-line -->
+    <div class="mid-line"></div>
+  </main><!-- #main -->
+
+  <footer id="colophon" class="site-footer">
+    <p>
+      Copyright © 2026 illusionistDev.<br />All rights reserved.
+    </p>
+  </footer><!-- #colophon -->
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@rive-app/webgl@2.9.1"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const animation = lottie.loadAnimation({
+        container: document.getElementById('bg-animation'), // container
+        renderer: 'svg', // "svg", "canvas", or "html"
+        loop: true, // true if you want it looping
+        autoplay: true, // auto start
+        path: "./img/abstraction.json" // your lottie JSON file
+      });
+
+      const workAnimation = lottie.loadAnimation({
+        container: document.getElementById('work-animation'), // container
+        renderer: 'svg', // "svg", "canvas", or "html"
+        loop: true, // true if you want it looping
+        autoplay: true, // auto start
+        path: "./img/abstraction-work.json" // your lottie JSON file
+      });
+
+      const logo = new rive.Rive({
+        src: "./img/illusionistdesign_logo.riv",
+        canvas: document.getElementById("canvas"),
+        autoplay: true,
+        onLoad: () => {
+          // Ensure the drawing surface matches the canvas size and device pixel ratio
+          logo.resizeDrawingSurfaceToCanvas();
+        },
+      });
+
+      const icon1 = new rive.Rive({
+        src: "./img/icon1.riv",
+        canvas: document.getElementById("icon1"),
+        autoplay: true,
+        stateMachines: "hoverMachine",
+        onLoad: () => {
+          icon1.resizeDrawingSurfaceToCanvas();
+        }
+      });
+
+      const icon2 = new rive.Rive({
+        src: "./img/icon2.riv",
+        canvas: document.getElementById("icon2"),
+        autoplay: true,
+        stateMachines: "hoverMachine",
+        onLoad: () => {
+          icon2.resizeDrawingSurfaceToCanvas();
+        }
+      });
+
+      const icon3 = new rive.Rive({
+        src: "./img/icon3.riv",
+        canvas: document.getElementById("icon3"),
+        autoplay: true,
+        stateMachines: "hoverMachine",
+        onLoad: () => {
+          icon3.resizeDrawingSurfaceToCanvas();
+        }
+      });
+
+      const services = document.querySelectorAll('.service');
+      services.forEach(service => {
+        service.addEventListener('click', (event) => {
+          const h3 = event.currentTarget.querySelector('h3');
+          const newText = service.getAttribute('data-text');
+          const newTitle = service.getAttribute('data-title');
+
+          h3.classList.add('fade-out');
+
+          h3.addEventListener('transitionend', function handler() {
+            if (newText === h3.innerHTML) {
+              h3.innerHTML = newTitle;
+            } else {
+              h3.innerHTML = newText;
+            }
+
+            h3.classList.remove('fade-out');
+            h3.removeEventListener('transitionend', handler);
+          });
+
+
+        });
+      });
+
+    })
+  </script>
+</body>
+
+</html>

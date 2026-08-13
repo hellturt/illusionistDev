@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <title>illusionistDev | Portfolio</title>
+</head>
+
+<body>
+  <main id="primary" class="site-portfolio">
+
+    <section class="pf_header">
+      <div class="container">
+        <div>
+          <a href="/">&#x25c0; Back home</a>
+          <h2>Our latest <span>work</span>.</h2>
+        </div>
+      </div>
+      <div id="bg-work-animation"></div>
+    </section>
+
+    <section class="work_list">
+      <div class="container">
+        <div class="pf-row">
+          <a class="pf" href="project/affa_kitchen.html">
+            <div class="dot"></div>
+            <div class="left">
+              <img src="./img/thumbnail/affa_kitchen.png" alt="Affa Kitchen">
+            </div>
+            <div class="right">
+              <h1>Affa Kitchen</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+          <a class="pf" href="project/cashless_society.html">
+            <div class="dot reverse"></div>
+            <div class="left">
+              <img src="./img/thumbnail/cashless_society.png" alt="Cashless Society">
+            </div>
+            <div class="right">
+              <h1>Cashless Society</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="pf-row">
+          <a class="pf" href="project/dotme_group.html">
+            <div class="dot"></div>
+            <div class="left">
+              <img src="./img/thumbnail/dotme_group.png" alt="DotMe Group Sdn. Bhd.">
+            </div>
+            <div class="right">
+              <h1>DotMe Group Sdn. Bhd.</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+          <a class="pf" href="project/localguide_asia.html">
+            <div class="dot reverse"></div>
+            <div class="left">
+              <img src="./img/thumbnail/localguide_asia.png" alt="localguide.asia">
+            </div>
+            <div class="right">
+              <h1>localguide.asia</h1>
+              <p>WebApp / CMS</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="pf-row">
+          <a class="pf" href="project/etnik_reka.html">
+            <div class="dot"></div>
+            <div class="left">
+              <img src="./img/thumbnail/etnik_reka.png" alt="Etnik Reka">
+            </div>
+            <div class="right">
+              <h1>Etnik Reka</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+          <a class="pf" href="project/eh_property.html">
+            <div class="dot reverse"></div>
+            <div class="left">
+              <img src="./img/thumbnail/eh_property.png" alt="Eng Han Property">
+            </div>
+            <div class="right">
+              <h1>Eng Han Property</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="pf-row">
+          <a class="pf" href="project/smart_parents.html">
+            <div class="dot"></div>
+            <div class="left">
+              <img src="./img/thumbnail/smart_parents.png" alt="SmartParents">
+            </div>
+            <div class="right">
+              <h1>SmartParents</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+          <a class="pf" href="project/optique_zone.html">
+            <div class="dot reverse"></div>
+            <div class="left">
+              <img src="./img/thumbnail/optique_zone.png" alt="Optique Zone">
+            </div>
+            <div class="right">
+              <h1>OptiqueZone</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="pf-row">
+          <a class="pf" href="project/jps_consultancy.html">
+            <div class="dot"></div>
+            <div class="left">
+              <img src="./img/thumbnail/jps_consultancy.png" alt="JPS Consultancy">
+            </div>
+            <div class="right">
+              <h1>JPS Consultancy</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+          <a class="pf" href="project/ideas_broker.html">
+            <div class="dot reverse"></div>
+            <div class="left">
+              <img src="./img/thumbnail/ideas_broker.png" alt="Ideas Broker">
+            </div>
+            <div class="right">
+              <h1>IdeasBroker</h1>
+              <p>Web / SEO</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Mid-line -->
+    <div class="mid-line"></div>
+  </main><!-- #main -->
+
+  <footer id="colophon" class="site-footer">
+    <p>
+      Copyright ©
+      <?php echo date("Y"); ?> illusionistDev.<br />All rights reserved.
+    </p>
+  </footer><!-- #colophon -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const animation = lottie.loadAnimation({
+        container: document.getElementById('bg-work-animation'), // container
+        renderer: 'svg', // "svg", "canvas", or "html"
+        loop: true, // true if you want it looping
+        autoplay: true, // auto start
+        path: "./img/abstraction.json" // your lottie JSON file
+      });
+
+      gsap.from('.pf_header .container', {
+        scrollTrigger: {
+          trigger: '.pf_header',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+        opacity: 0,
+        y: -20,
+        duration: .5,
+      });
+
+      const singleItem = gsap.utils.toArray('.pf');
+      singleItem.forEach((el) => {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 70%',
+            toggleActions: 'play none none reverse',
+          },
+          opacity: 0,
+          y: 50,
+          duration: .5,
+        });
+      });
+    })
+  </script>
+</body>
+
+</html>
